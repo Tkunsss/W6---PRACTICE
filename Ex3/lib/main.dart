@@ -21,12 +21,13 @@ enum Product {
     image: 'assets/ex3/firebase.png',
   );
 
+  // defination
   const Product({
     required this.title,
     required this.description,
     required this.image,
   });
-
+  // construction
   final String title;
   final String description;
   final String image;
@@ -38,7 +39,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(title: const Text('Products')),
         body: Container(

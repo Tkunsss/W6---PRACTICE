@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,17 +5,10 @@ void main() {
 }
 
 // Button types
-enum ButtonType {
-  primary,
-  secondary,
-  disabled,
-}
+enum ButtonType { primary, secondary, disabled }
 
 // Icon positions
-enum IconPosition {
-  left,
-  right,
-}
+enum IconPosition { left, right }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -24,17 +16,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Custom Buttons"),
-        ),
+        appBar: AppBar(title: const Text("Custom Buttons")),
         body: const Padding(
           padding: EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const CustomButton(
+              CustomButton(
                 label: "Submit",
                 icon: Icons.check,
                 type: ButtonType.primary,
@@ -42,7 +31,7 @@ class MyApp extends StatelessWidget {
 
               SizedBox(height: 20),
 
-              const CustomButton(
+              CustomButton(
                 label: "Time",
                 icon: Icons.access_time,
                 type: ButtonType.secondary,
@@ -51,7 +40,7 @@ class MyApp extends StatelessWidget {
 
               SizedBox(height: 20),
 
-              const CustomButton(
+              CustomButton(
                 label: "Account",
                 icon: Icons.account_tree,
                 type: ButtonType.disabled,
@@ -64,26 +53,23 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Custom Button Widget
+// Custom Button Widget defination
 class CustomButton extends StatelessWidget {
   final String label;
   final IconData icon;
   final IconPosition iconPosition;
   final ButtonType type;
-  final VoidCallback? onPressed;
-
+  //constructor
   const CustomButton({
     super.key,
     required this.label,
     required this.icon,
     this.iconPosition = IconPosition.left,
     this.type = ButtonType.primary,
-    this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-
     // Set button color
     Color buttonColor;
 
@@ -120,11 +106,9 @@ class CustomButton extends StatelessWidget {
 
     return SizedBox(
       width: double.infinity,
-      height: 45,
+      height: 40,
       child: ElevatedButton(
-        onPressed: type == ButtonType.disabled
-            ? null
-            : (onPressed ?? () {}),
+        onPressed: type == ButtonType.disabled ? null : () {},
 
         style: ElevatedButton.styleFrom(
           backgroundColor: buttonColor,
